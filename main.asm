@@ -1,8 +1,8 @@
-!to "main.prg", cbm
+; !to "main.prg", cbm
 
 ;===============================================================================
 ; Imports
-!source "src/hardware.acme"
+!source "src/hardware.asm"
 ;===============================================================================
 ; BASIC Loader
 
@@ -15,23 +15,21 @@
         ; after the 15 bytes for the BASIC loader
 
 ;===============================================================================
-
 init
-        ; Disable run/stop + restore buttons
+        ; jsr disableRunStop
         lda #$FC        ; Low byte for pointer to  routine. Result -> $F6FC
         sta $0328
-
         sei                     ; set interrupt disable flag
 
-loadColors
-        ldx #0
-.loopColors
+        ; jsr clearScreenRam
+        lda #0
+        sta VIC_BORDER_COL
         ; Disable CIA Timers
         ldy #$7f                ; bit mask
                                 ; 7 - Set or Clear the following bits in the mask.
                                 ; in this case, we're clearing them
-        sty CIA1_ICR               ; CIA1_ICR
-        sty CIA2_ICR               ; CIA2_ICR
+        sty $DC0D               ; CIA1_ICR
+        sty $DD0D               ; CIA2_ICR
 
         ; Clear CIA IRQs by reading the registers
         lda CIA1_ICR            ; CIA1_ICR
@@ -51,8 +49,28 @@ loadColors
         lda VIC_RSTCMP_H        ; VIC_CR1 - Bit 7 is 9th bit of $d012 - Needs to be set to 0 as well
         and #$7f
         sta VIC_RSTCMP_H
+
         cli                     ; clear interrupt disable flat
+
+gameloop
         jmp *                   ; infinite loop
 
 irq
-        rts
+        dec $d019
+        lda #0
+        sta VIC_BORDER_COL
+        ; jsr clearScreenRam
+        ; jsr clearColorRam
+                ; set the sprite color
+        lda #1
+        sta $D027
+        ; set the sprite mode 
+        ; set the sprite x pos
+        lda #40
+        sta $D000
+        ; set the sprite y pos
+        lda #40
+        sta $D001
+        jmp $ea81
+
+; !source "src/init.asm"
