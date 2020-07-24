@@ -28,8 +28,8 @@ init
         ldy #$7f                ; bit mask
                                 ; 7 - Set or Clear the following bits in the mask.
                                 ; in this case, we're clearing them
-        sty $DC0D               ; CIA1_ICR
-        sty $DD0D               ; CIA2_ICR
+        sty CIA1_ICR               ; CIA1_ICR
+        sty CIA2_ICR               ; CIA2_ICR
 
         ; Clear CIA IRQs by reading the registers
         lda CIA1_ICR            ; CIA1_ICR
@@ -51,8 +51,6 @@ init
         sta VIC_RSTCMP_H
 
         cli                     ; clear interrupt disable flat
-
-gameloop
         jmp *                   ; infinite loop
 
 irq
@@ -63,7 +61,7 @@ irq
         ; jsr clearColorRam
                 ; set the sprite color
         lda #1
-        sta $D027
+        sta VIC_SPR_COL
         ; set the sprite mode 
         ; set the sprite x pos
         lda #40
