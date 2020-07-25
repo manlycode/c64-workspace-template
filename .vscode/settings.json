@@ -1,3 +1,6 @@
 {
-  "c64.assemblerArgs": "-f cbm --setpc 2064"
+  "c64.assemblerArgs": "-f cbm --setpc 2064",
+  "search.useIgnoreFiles": false,
+  "c64.assemblerSearchPath": "./,./vendor/acme/ACME_Lib/cbm,./vendor/acme/ACME_Lib/cbm/c64,./vendor/c64unit/cross-assemblers/acme ",
+  "editor.tabSize": 8
 }

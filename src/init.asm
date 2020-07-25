@@ -26,4 +26,4 @@ clearColorRam
         sta $DB00,x
         inx
         bne .clearColorRamLoop
-	rts     
+	rts
