@@ -59,4 +59,10 @@ testSelectScreenMemory
 	+_vicSelectScreenMemory 15, vic_ram_register
 	+assertEqual %11111111, vic_ram_register
 
+	; Shouldn't clobber the lowest 4 bits
+	lda #%01010101
+	sta vic_ram_register
+	+_vicSelectScreenMemory 15, vic_ram_register
+	+assertEqual %11110101, vic_ram_register
+
 	rts
