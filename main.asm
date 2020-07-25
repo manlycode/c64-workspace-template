@@ -9,7 +9,7 @@
 ; Zero Page
 ;========================================================================
 *=$000
-!src "src/zero_page.asm"
+!src "src/memory.asm"
 
 ;========================================================================
 ; Basic Loader
@@ -30,6 +30,9 @@ init
         
         jsr disableRunStop        
         sei
+
+        +vicSelectScreenMemory 3
+
         jsr clearScreenRam
         
         ; lda #0
@@ -52,6 +55,7 @@ addRasterCall
 
 irq
         dec $d019
+
         lda #0
         sta vic_cborder
         sta vic_cbg

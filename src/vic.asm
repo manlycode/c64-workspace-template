@@ -53,3 +53,28 @@
 ; See <cbm/c128/vic.a> for the C128's two additional registers at $d02f/$d030.
 ; They are accessible even in C64 mode and $d030 can garble the video output,
 ; so be careful not to write to it accidentally in a C64 program!
+
+!macro vicSelectBank .bankNum {
+	+_selectBank .bankNum, $dd02, $dd00
+}
+
+!macro _selectBank .bankNum, .cia_data_direction, .cia_pra  {
+	lda .cia_data_direction
+	ora #$03
+	sta .cia_data_direction
+	lda .cia_pra
+	and %11111100
+	ora #3-.bankNum
+	sta .cia_pra
+}
+
+!macro vicSelectScreenMemory .idx {
+	+_vicSelectScreenMemory .idx, vic_ram
+}
+
+!macro _vicSelectScreenMemory .idx, .vic_ram_register {
+	lda .vic_ram_register
+	and #%00001111	; clear high bits
+	ora #16*.idx
+	sta .vic_ram_register
+}
