@@ -78,3 +78,14 @@
 	ora #16*.idx
 	sta .vic_ram_register
 }
+
+!macro vicSelectCharMemory .idx {
+	+_vicSelectCharMemory .idx, vic_ram
+}
+
+!macro _vicSelectCharMemory .idx, .vic_ram_register {
+	lda .vic_ram_register
+	and #%11110001	; clear bits 3-1
+	ora #2*.idx
+	sta .vic_ram_register
+}

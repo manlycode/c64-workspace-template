@@ -4,11 +4,6 @@
 !src "src/irq_macros.asm"
 !src "src/vic.asm"
 !src "src/cia.asm"
-
-;========================================================================
-; Zero Page
-;========================================================================
-*=$000
 !src "src/memory.asm"
 
 ;========================================================================
@@ -30,8 +25,6 @@ init
         
         jsr disableRunStop        
         sei
-
-        +vicSelectScreenMemory 3
 
         jsr clearScreenRam
         
@@ -55,6 +48,8 @@ addRasterCall
 
 irq
         dec $d019
+
+        +vicSelectScreenMemory 12 ;$3400
 
         lda #0
         sta vic_cborder
