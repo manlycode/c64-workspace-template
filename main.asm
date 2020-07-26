@@ -37,6 +37,11 @@ init
         sty cia1_icr               ; CIA1_ICR
         sty cia2_icr               ; CIA2_ICR
 
+        +vicSelectScreenMemory 13       ; $3400
+        +vicSelectCharMemory 7          ; $3800
+        +vicSetMultiColorMode
+        +vicSetStandardCharacterMode
+
         ; Clear CIA IRQs by reading the registers
         lda cia1_icr            ; CIA1_ICR
         lda cia2_icr            ; CIA2_ICR
@@ -48,8 +53,6 @@ addRasterCall
 
 irq
         dec $d019
-
-        +vicSelectScreenMemory 12 ;$3400
 
         lda #0
         sta vic_cborder

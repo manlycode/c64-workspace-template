@@ -68,6 +68,9 @@
 	sta .cia_pra
 }
 
+;========================================================================
+; Screen Memory pg. 102
+;========================================================================
 !macro vicSelectScreenMemory .idx {
 	+_vicSelectScreenMemory .idx, vic_ram
 }
@@ -78,7 +81,9 @@
 	ora #16*.idx
 	sta .vic_ram_register
 }
-
+;========================================================================
+; Character Memory pg. 103 - 106
+;========================================================================
 !macro vicSelectCharMemory .idx {
 	+_vicSelectCharMemory .idx, vic_ram
 }
@@ -88,4 +93,19 @@
 	and #%11110001	; clear bits 3-1
 	ora #2*.idx
 	sta .vic_ram_register
+}
+
+;========================================================================
+; Multi-color Mode pg. 115
+;========================================================================
+!macro vicSetMultiColorMode {
+	lda vic_controlh
+	ora #%00010000
+	sta vic_controlh
+}
+
+!macro vicSetStandardCharacterMode {
+	lda vic_controlh
+	and #%11101111
+	sta vic_controlh
 }
