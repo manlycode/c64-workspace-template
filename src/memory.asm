@@ -1,13 +1,28 @@
+!ifdef memory !eof
+memory =  1
 ;========================================================================
 ; $00-$FF Zero Page 
 ;------------------------------------------------------------------------
 ; Video Bank 0 $0000 - $3fff (16K)
 ;------------------------------------------------------------------------
-        ; $00-$01   Reserved for IO
-; *=$02
-; temp    !byte $00
-;         ; $03-$8F   Reserved for BASIC
-; *=$90
+                ; $00-$01   Reserved for IO
+ZeroPageTemp    = $02
+                ; $03-$8F   Reserved for BASIC
+                ; using $73-$8A CHRGET as BASIC not used for our game
+tempPtr1  = $73
+tempPtr2  = $75
+
+tempParam1  = $77
+tempParam2  = $78
+tempParam3  = $79
+tempParam4  = $7A
+tempParam5  = $7B
+                ; $90-$FA   Reserved for Kernal
+tempParam6  = $FB
+tempParam7  = $FC
+tempParam8  = $FD
+tempParam9  = $FE
+                ; $FF       Reserved for Kernal
 
 ;========================================================================
 ; $0100 - $10ff         Stack
@@ -19,8 +34,15 @@
 
         ; $0801 is where code starts
 
+*=$3000
+colorData
+        ; !binary "assets/tiles-colors.bin"
+screenRAM=$3400
 *=$3800
-        !binary "assets/example-charset.raw"
+        !binary "assets/tiles-charset.bin"
+*=$4000
+mapData
+        !binary "assets/tiles-map.bin"
 ;------------------------------------------------------------------------
 ; Video Bank 1 $4000 - $7fff (16K)
 ;------------------------------------------------------------------------

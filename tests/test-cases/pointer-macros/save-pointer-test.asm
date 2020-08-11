@@ -14,8 +14,11 @@
 
 target !byte $0, $0
 !address{
-	source = $beef
+source = $beef
+source2
+	!byte $ff
 }
+
 
 ; @access public
 ; @return void
@@ -25,8 +28,13 @@ testSavePointer
 
 	lda target
 	+assertEqualToA $ef ; 239
-
 	lda target+1
 	+assertEqualToA $be ; 190
+
+	+savePointer source2, target
+	lda target
+	+assertEqualToA <source2
+	lda target
+	+assertEqualToA <source2
 	
 	rts

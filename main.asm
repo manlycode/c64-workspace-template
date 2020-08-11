@@ -39,8 +39,15 @@ init
 
         +vicSelectScreenMemory 13       ; $3400
         +vicSelectCharMemory 7          ; $3800
-        +vicSetMultiColorMode
-        +vicSetStandardCharacterMode
+        ; +vicSetMultiColorMode
+        lda #3
+        sta vic_cbg
+
+
+        lda #0
+        sta vic_cborder
+        jsr clearScreenRam
+        jsr clearColorRam
 
         ; Clear CIA IRQs by reading the registers
         lda cia1_icr            ; CIA1_ICR
@@ -53,12 +60,9 @@ addRasterCall
 
 irq
         dec $d019
-
-        lda #0
-        sta vic_cborder
-        sta vic_cbg
-        jsr clearScreenRam
-        jsr clearColorRam
+        ; +vicCopyColors colorData
+        ; +vicCopyMap mapData, 21*2, 14*2
+        ; Set up Color Ram
 
         jmp $ea81
 

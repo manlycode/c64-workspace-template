@@ -1,7 +1,7 @@
 {
   "c64.assemblerArgs": "-f cbm --setpc 2064",
   "search.useIgnoreFiles": false,
-  "c64.assemblerSearchPath": "./,./vendor/acme/ACME_Lib/cbm,./vendor/acme/ACME_Lib/cbm/c64,./vendor/c64unit/cross-assemblers/acme ",
+  "c64.assemblerSearchPath": "./src,./tests/test-cases,./vendor/acme/ACME_Lib/cbm,./vendor/acme/ACME_Lib/cbm/c64,./vendor/c64unit/cross-assemblers/acme",
   "editor.tabSize": 8,
   "c64.emulatorArgs": "-warp -autostart-warp",
   "c64.emulatorPath": "/usr/local/bin/x64sc"
