@@ -1,0 +1,158 @@
+[version]
+5.16
+[errors]
+Error;1,3,1,4,0;Invalid token
+Error;3,5,3,5,0;Invalid token
+Error;3,6,3,23,0;Invalid token
+Error;4,5,4,5,0;Invalid token
+Error;4,6,4,25,0;Invalid token
+Error;5,5,5,5,0;Invalid token
+Error;5,6,5,18,0;Invalid token
+Error;6,5,6,5,0;Invalid token
+Error;6,6,6,18,0;Invalid token
+Error;7,5,7,5,0;Invalid token
+Error;7,6,7,21,0;Invalid token
+Error;9,2,9,3,0;Invalid token
+Error;11,2,11,3,0;Invalid token
+Error;12,11,12,12,0;Invalid token
+Error;14,14,14,14,0;Invalid token
+Error;14,15,14,17,0;Invalid token
+Error;15,14,15,14,0;Invalid token
+Error;15,15,15,17,0;Invalid token
+Error;17,20,17,25,0;Syntax error
+Error;18,21,18,22,0;Syntax error
+Error;21,2,21,3,0;Invalid token
+Error;23,2,23,3,0;Invalid token
+Error;33,23,33,28,0;Syntax error
+Error;35,35,35,35,0;Invalid token
+Error;36,43,36,46,0;Syntax error
+Error;36,51,36,51,0;Syntax error
+Error;40,9,40,9,0;Invalid token
+Error;40,43,40,47,0;Invalid token
+Error;41,9,41,9,0;Invalid token
+Error;41,43,41,47,0;Invalid token
+Error;42,11,42,11,0;Invalid token
+Error;52,21,52,24,0;Syntax error
+Error;57,9,57,9,0;Invalid token
+Error;58,51,58,57,0;Syntax error
+Error;63,11,63,11,0;Invalid token
+Error;64,11,64,11,0;Invalid token
+Error;65,18,65,22,0;Syntax error
+Error;69,5,69,5,0;Invalid token
+Error;69,6,69,19,0;Invalid token
+Error;2,3,2,9,0;Pseudo command 'Imports' not defined
+Error;10,9,10,14,0;Unknown symbol 'Loader'
+Error;10,3,10,7,0;Pseudo command 'Basic' not defined
+Error;22,9,22,13,0;Unknown symbol 'Point'
+Error;22,3,22,7,0;Pseudo command 'Entry' not defined
+Error;24,1,24,4,0;Pseudo command 'init' not defined
+Error;26,13,26,26,0;Unknown symbol 'disableRunStop'
+Error;29,13,29,26,0;Unknown symbol 'clearScreenRam'
+Error;32,15,32,25,0;Unknown symbol 'vic_cborder'
+Error;34,39,34,42,0;Unknown symbol 'mask'
+Error;37,13,37,20,0;Unknown symbol 'cia1_icr'
+Error;37,38,37,45,0;Pseudo command 'CIA1_ICR' not defined
+Error;38,13,38,20,0;Unknown symbol 'cia2_icr'
+Error;38,38,38,45,0;Pseudo command 'CIA2_ICR' not defined
+Error;44,13,44,19,0;Unknown symbol 'vic_cbg'
+Error;48,13,48,23,0;Unknown symbol 'vic_cborder'
+Error;49,13,49,26,0;Unknown symbol 'clearScreenRam'
+Error;50,13,50,25,0;Unknown symbol 'clearColorRam'
+Error;53,13,53,20,0;Unknown symbol 'cia1_icr'
+Error;53,35,53,42,0;Pseudo command 'CIA1_ICR' not defined
+Error;54,13,54,20,0;Unknown symbol 'cia2_icr'
+Error;54,35,54,42,0;Pseudo command 'CIA2_ICR' not defined
+Error;56,1,56,13,0;Pseudo command 'addRasterCall' not defined
+Error;59,44,59,47,0;Unknown symbol 'loop'
+Error;59,35,59,42,0;Pseudo command 'infinite' not defined
+Error;61,1,61,3,0;Pseudo command 'irq' not defined
+[syntax]
+pseudoCommandExecution;2,3,2,9,0
+symbolReference;10,9,10,14,0
+pseudoCommandExecution;10,3,10,7,0
+directive;12,1,12,2,0
+symbolReference;22,9,22,13,0
+pseudoCommandExecution;22,3,22,7,0
+pseudoCommandExecution;24,1,24,4,0
+symbolReference;26,13,26,26,0
+mnemonic;26,9,26,11,0
+mnemonic;27,9,27,11,0
+symbolReference;29,13,29,26,0
+mnemonic;29,9,29,11,0
+mnemonic;31,11,31,13,0
+symbolReference;32,15,32,25,0
+mnemonic;32,11,32,13,0
+mnemonic;34,9,34,11,0
+symbolReference;34,39,34,42,0
+mnemonic;34,35,34,37,0
+symbolReference;37,13,37,20,0
+mnemonic;37,9,37,11,0
+pseudoCommandExecution;37,38,37,45,0
+symbolReference;38,13,38,20,0
+mnemonic;38,9,38,11,0
+pseudoCommandExecution;38,38,38,45,0
+mnemonic;43,9,43,11,0
+symbolReference;44,13,44,19,0
+mnemonic;44,9,44,11,0
+mnemonic;47,9,47,11,0
+symbolReference;48,13,48,23,0
+mnemonic;48,9,48,11,0
+symbolReference;49,13,49,26,0
+mnemonic;49,9,49,11,0
+symbolReference;50,13,50,25,0
+mnemonic;50,9,50,11,0
+symbolReference;53,13,53,20,0
+mnemonic;53,9,53,11,0
+pseudoCommandExecution;53,35,53,42,0
+symbolReference;54,13,54,20,0
+mnemonic;54,9,54,11,0
+pseudoCommandExecution;54,35,54,42,0
+pseudoCommandExecution;56,1,56,13,0
+mnemonic;58,9,58,11,0
+mnemonic;59,9,59,11,0
+symbolReference;59,44,59,47,0
+pseudoCommandExecution;59,35,59,42,0
+pseudoCommandExecution;61,1,61,3,0
+mnemonic;62,9,62,11,0
+mnemonic;67,9,67,11,0
+comment;1,1,24,2,1
+comment;26,1,26,34,1
+comment;27,1,27,10,1
+comment;28,1,28,34,1
+comment;30,1,36,62,1
+directive;37,1,37,6,1
+comment;38,20,38,35,1
+comment;39,16,39,27,1
+comment;40,16,40,22,1
+comment;44,14,44,58,1
+comment;47,1,53,62,1
+directive;38,2,38,6,1
+symbolReference;38,8,38,17,1
+directive;39,5,39,9,1
+directive;40,5,40,9,1
+directive;41,2,41,6,1
+symbolReference;41,20,41,26,1
+functionCall;41,8,41,18,1
+directive;42,2,42,6,1
+label;43,1,43,11,1
+directive;44,5,44,9,1
+directive;54,1,54,6,1
+comment;56,20,56,35,1
+comment;57,16,57,27,1
+comment;58,16,58,22,1
+comment;62,14,62,58,1
+directive;55,2,55,2,1
+directive;56,2,56,6,1
+symbolReference;56,8,56,17,1
+directive;57,5,57,9,1
+directive;58,5,58,9,1
+directive;59,2,59,6,1
+symbolReference;59,20,59,26,1
+functionCall;59,8,59,18,1
+directive;60,2,60,6,1
+label;61,1,61,11,1
+directive;62,5,62,9,1
+directive;63,5,63,5,1
+[files]
+0;/Users/manlycode/git/manlycode/c64-workspace-template/.source.txt
+1;KickAss.jar:/include/autoinclude.asm
